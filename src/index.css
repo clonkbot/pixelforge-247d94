@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-cyan: #00fff7;
+  --color-pink: #ff2d6a;
+  --color-green: #39ff14;
+  --color-bg: #0a0a0f;
+  --color-surface: #1a1a2e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Press Start 2P', cursive;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom font classes */
+.font-display {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.font-body {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Apply body font to most text */
+body, input, button {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 255, 247, 0.05);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 247, 0.2);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 247, 0.4);
+}
+
+/* CRT Flicker Animation */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.98; }
+}
+
+/* Glow pulse animation */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px var(--color-cyan, #00fff7)40,
+                0 0 40px var(--color-cyan, #00fff7)20;
+  }
+  50% {
+    box-shadow: 0 0 30px var(--color-cyan, #00fff7)60,
+                0 0 60px var(--color-cyan, #00fff7)30;
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--color-cyan);
+  color: black;
+}
+
+/* Focus styling */
+:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 2px;
+}
+
+/* Prevent text selection on canvas */
+.select-none {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Touch action for canvas */
+.touch-none {
+  touch-action: none;
+}
